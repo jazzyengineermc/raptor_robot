@@ -1,0 +1,5 @@
+<launch>
+
+    <node name="joy" pkg="rosserial_arduino" type="serial_node.py" args="/dev/ttyUSB0" />
+
+</launch>

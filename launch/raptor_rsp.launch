@@ -1,0 +1,8 @@
+<launch>
+
+    <param name="robot_description" LOAD URDF JUNK HERE />
+
+    <node name="rsp" />
+    <node name="jsp" />
+
+</launch>
