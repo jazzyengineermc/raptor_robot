@@ -1,0 +1,7 @@
+<launch>
+
+	<include file="$(find raptor_robot)/launch/include/front_laser.launch" />
+	<include file="$(find raptor_robot)/launch/include/rear_laser.launch" />
+	<include file="$(find raptor_robot)/launch/include/laserscan_multi_merger.launch" />
+
+</launch>
