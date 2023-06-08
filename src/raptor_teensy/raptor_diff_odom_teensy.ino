@@ -1,3 +1,7 @@
+// CODE "Borrowed" from James Bruton's RUR project If you see this James,
+// love the vids, sorry I removed most of your code, just that I only want
+// /base_link and /odom with the odrive v3.6 firmware 0.5.5 diffbot
+
 //ODrive
 #include <ODriveArduino.h>
 
@@ -17,6 +21,7 @@ geometry_msgs::TransformStamped t;
 nav_msgs::Odometry odom_msg;
 ros::Publisher odom_pub("odom", &odom_msg);
 tf::TransformBroadcaster broadcaster;
+ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel" , velCallback);
 
 // tf variables to be broadcast
 double x = 0;
@@ -75,7 +80,7 @@ void velCallback(  const geometry_msgs::Twist& vel)
      demandz = vel.angular.z;
 }
 
-ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel" , velCallback);  
+
 
 // ** Setup **
 
@@ -89,9 +94,6 @@ void setup() {
   broadcaster.init(nh);       // set up broadcaster
 
   pinMode(2, INPUT_PULLUP);   // ODrive init switch
-
-  pinMode(14, OUTPUT);    // linear motor drive
-  pinMode(15, OUTPUT);
 
   Serial1.begin(115200);    // ODrive
   Serial6.begin(115200);    // debug port using a USB-serial adapter (Serial-zero is in use by ros_serial

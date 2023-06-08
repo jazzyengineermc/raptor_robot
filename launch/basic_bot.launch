@@ -13,7 +13,8 @@
     <node pkg="tf" type="static_transform_publisher" name="base_cam_bc" args="-0.16 0 0.93 0 0 0 base_link camera_link 100" />
     
     <!--
-    <include file="$(find raptor_robot)/launch/raptor_rviz.launch" />-->
+    <include file="$(find raptor_robot)/launch/raptor_rviz.launch" />
     <include file="$(find raptor_robot)/launch/raptor_teleop.launch" />
+    -->
     
 </launch>
