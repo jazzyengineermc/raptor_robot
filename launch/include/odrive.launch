@@ -2,5 +2,6 @@
 <launch>
     
     <!-- rosserial_arduino to Teensy -->
+    <node name="shoes" pkg="rosserial_arduino" type="serial_node.py" args="/dev/ttyACM0" />
 
 </launch>

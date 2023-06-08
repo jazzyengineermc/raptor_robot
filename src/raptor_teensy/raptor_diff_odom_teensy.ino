@@ -21,7 +21,6 @@ geometry_msgs::TransformStamped t;
 nav_msgs::Odometry odom_msg;
 ros::Publisher odom_pub("odom", &odom_msg);
 tf::TransformBroadcaster broadcaster;
-ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel" , velCallback);
 
 // tf variables to be broadcast
 double x = 0;
@@ -70,7 +69,7 @@ float pos_average_mm_diff;
 float pos_total_mm;
 
 //This namespace is required to use Control table item names
-using namespace ControlTableItem;
+// using namespace ControlTableItem;
 
 // ** ROS callback & subscriber **
 
@@ -79,7 +78,7 @@ void velCallback(  const geometry_msgs::Twist& vel)
      demandx = vel.linear.x;
      demandz = vel.angular.z;
 }
-
+ros::Subscriber<geometry_msgs::Twist> sub("cmd_vel" , velCallback);
 
 
 // ** Setup **
@@ -117,11 +116,11 @@ void loop() {
 
             // deal with driving wheels
 
-            forward0 = demandx * 83466; // convert m/s into counts/s
-            forward1 = demandx * 83466; // convert m/s into counts/s
+            forward0 = demandx * 95; // convert m/s into counts/s
+            forward1 = demandx * 95; // convert m/s into counts/s
 
-            turn0 = demandz * 15091;    // convert rads/s into counts/s
-            turn1 = demandz * 15091;    // convert rads/s into counts/s
+            turn0 = demandz * 50;    // convert rads/s into counts/s
+            turn1 = demandz * 50;    // convert rads/s into counts/s
 
             forward1 = forward1*-1;      // one motor and encoder is mounted facing the other way
 
@@ -198,4 +197,3 @@ void loop() {
         } // end of timed loop
 
 } // end of main loop
-
