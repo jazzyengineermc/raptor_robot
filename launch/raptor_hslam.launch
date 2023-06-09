@@ -6,7 +6,7 @@
 
   <param name="/use_sim_time" value="true"/>
 
-  <include file="$(find raptor_navigation)/launch/include/mapping_default.launch"/>
+  <include file="$(find raptor_robot)/launch/include/mapping_default.launch"/>
 
   <include file="$(find hector_geotiff_launch)/launch/geotiff_mapper.launch">
     <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>

@@ -1,6 +1,0 @@
-<launch>
-
-    <include file="$(find raptor_command)/launch/raptor_rviz.launch" />
-    <include file="$(find raptor_command)/launch/raptor_teleop.launch" />
-
-</launch>
