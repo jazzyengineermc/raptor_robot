@@ -2,15 +2,13 @@
 
 <launch>
     
-    <include file="$(find raptor_robot)/launch/raptor_rsp.launch" />
+    <include file="$(find raptor_description)/launch/raptor_rsp.launch" />
 
-    <!-- 
-    <include file="$(find raptor_robot)/launch/include/odrive.launch" />
-    -->
-
+    <include file="$(find raptor_base)/launch/include/odrive.launch" />
+    
     <node pkg="tf" type="static_transform_publisher" name="base_foot_bc" args="0 0 0 0 0 0 base_link base_footprint 100" />  
     <node pkg="tf" type="static_transform_publisher" name="base_cam_bc" args="-0.16 0 0.93 0 0 0 base_link camera_link 100" />
     
-    <include file="$(find raptor_robot)/launch/raptor_teleop.launch" />
+    <include file="$(find raptor_control)/launch/raptor_teleop.launch" />
     
 </launch>

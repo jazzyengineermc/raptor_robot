@@ -1,0 +1,3 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find raptor_control)/rviz/raptor.rviz" output="screen" />
+</launch>
