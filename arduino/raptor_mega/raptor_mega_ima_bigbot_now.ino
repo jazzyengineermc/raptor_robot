@@ -21,15 +21,17 @@ DHT dht(DHTPIN, DHTTYPE);
 // IBT-2 sends pwm to the different pins
 
 // Left Wheel
-#define EN_L 8
-#define IN1_L 25
-#define IN2_L 27
+#define EN_LL 6
+#define EN_RL 7
+#define IN1_L 10
+#define IN2_L 11
 #define hsla 18 // hall sensors
 #define hslb 19
 // Right Wheel
-#define EN_R 9
-#define IN1_R 29
-#define IN2_R 31
+#define EN_LR 8
+#define EN_RR 9
+#define IN1_R 12
+#define IN2_R 13
 #define hsra 20 // hall sensors
 #define hsrb 21
 
@@ -241,60 +243,58 @@ void loop() {
 
 
 void Motors_init(){
- pinMode(EN_L, OUTPUT);
- pinMode(EN_R, OUTPUT);
+ pinMode(EN_LL, OUTPUT);
+ pinMode(EN_RL, OUTPUT);
+ pinMode(EN_LR, OUTPUT);
+ pinMode(EN_RR, OUTPUT);
  pinMode(IN1_L, OUTPUT);
  pinMode(IN2_L, OUTPUT);
  pinMode(IN1_R, OUTPUT);
  pinMode(IN2_R, OUTPUT);
- digitalWrite(EN_L, LOW);
- digitalWrite(EN_R, LOW);
- digitalWrite(IN1_L, LOW);
- digitalWrite(IN2_L, LOW);
- digitalWrite(IN1_R, LOW);
- digitalWrite(IN2_R, LOW);
+ digitalWrite(EN_LL, LOW);
+ digitalWrite(EN_RL, LOW);
+ digitalWrite(EN_LR, LOW);
+ digitalWrite(EN_RR, LOW);
+ digitalWrite(IN1_L, HIGH);
+ digitalWrite(IN2_L, HIGH);
+ digitalWrite(IN1_R, HIGH);
+ digitalWrite(IN2_R, HIGH);
 }
 
 
 void MotorL(int Pulse_Width1){
  if (Pulse_Width1 > 0){
-     analogWrite(EN_L, Pulse_Width1);
-     digitalWrite(IN1_L, HIGH);
-     digitalWrite(IN2_L, LOW);
+    analogWrite(EN_RL, 0);    
+    analogWrite(EN_LL, Pulse_Width1);
  }
 
  if (Pulse_Width1 < 0){
-     Pulse_Width1=abs(Pulse_Width1);
-     analogWrite(EN_L, Pulse_Width1);
-     digitalWrite(IN1_L, LOW);
-     digitalWrite(IN2_L, HIGH);
+    Pulse_Width1=abs(Pulse_Width1);
+    analogWrite(EN_LL, 0);    
+    analogWrite(EN_RL, Pulse_Width1);
  }
 
  if (Pulse_Width1 == 0){
-     analogWrite(EN_L, Pulse_Width1);
-     digitalWrite(IN1_L, LOW);
-     digitalWrite(IN2_L, LOW);
+    analogWrite(EN_LL, 0);
+    analogWrite(EN_RL, 0);  
  }
 }
 
 
 void MotorR(int Pulse_Width2){
  if (Pulse_Width2 > 0){
-     analogWrite(EN_R, Pulse_Width2);
-     digitalWrite(IN1_R, LOW);
-     digitalWrite(IN2_R, HIGH);
+    analogWrite(EN_RR, 0);
+    analogWrite(EN_LR, Pulse_Width2);
  }
 
  if (Pulse_Width2 < 0){
-     Pulse_Width2=abs(Pulse_Width2);
-     analogWrite(EN_R, Pulse_Width2);
-     digitalWrite(IN1_R, HIGH);
-     digitalWrite(IN2_R, LOW);
+    Pulse_Width2=abs(Pulse_Width2);
+    analogWrite(EN_LR, 0);    
+    analogWrite(EN_RR, Pulse_Width2);
  }
 
  if (Pulse_Width2 == 0){
-     analogWrite(EN_R, Pulse_Width2);
-     digitalWrite(IN1_R, LOW);
-     digitalWrite(IN2_R, LOW);
+    analogWrite(EN_RR, 0);
+    analogWrite(EN_LR, 0);
  }
 }
