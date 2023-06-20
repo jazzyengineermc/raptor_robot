@@ -6,6 +6,11 @@
 		</link>
 
 		<link name="chassis_frame">
+		<inertial>
+      		<origin xyz="0 0 0" rpy="0 0 0"/>
+      		<mass value="1.0" />
+      		<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+		</inertial>
 			<collision>
 			<geometry>
 				<box size="0.80 0.54 0.22"/>
@@ -60,6 +65,11 @@
 		</joint>
 
 		<link name="pvc_up_left">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.54" radius="0.014"/>
@@ -78,6 +88,11 @@
 		</joint>
 
 		<link name="pvc_up_right">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.54" radius="0.014"/>
@@ -96,6 +111,11 @@
 		</joint>
 
 		<link name="pvc_horizontal">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.4" radius="0.014"/>
@@ -114,6 +134,11 @@
 		</joint>
 
 		<link name="pvc_45_left">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.64" radius="0.014"/>
@@ -132,6 +157,11 @@
 		</joint>
 
 		<link name="pvc_45_right">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.64" radius="0.014"/>
@@ -150,6 +180,11 @@
 		</joint>
 
 		<link name="bucket">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.36" radius="0.15"/>
@@ -168,6 +203,17 @@
 		</joint>
 
 		<link name="lwheel">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
+			<collision name="lwheel_collision">
+    			<origin rpy=" 0 0 0" xyz="0 0 0"/>
+    			<geometry>
+      				<cylinder length="0.07" radius="0.14"/>
+    			</geometry>
+  			</collision>
 			<visual>
 			<geometry>
 				<cylinder length="0.07" radius="0.14"/>
@@ -186,6 +232,17 @@
 		</joint>
 		
 		<link name="rwheel">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
+			<collision name="rwheel_collision">
+    			<origin rpy=" 0 0 0" xyz="0 0 0"/>
+    			<geometry>
+      				<cylinder length="0.07" radius="0.14"/>
+    			</geometry>
+  			</collision>
 			<visual>
 			<geometry>
 				<cylinder length="0.07" radius="0.14"/>
@@ -204,6 +261,11 @@
 		</joint>
 
 		<link name="front_laser">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.04" radius="0.03"/>
@@ -234,6 +296,11 @@
 		</joint>
 
 		<link name="scan_multi">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.04" radius="0.03"/>
@@ -265,6 +332,11 @@
 
 
 		<link name="rear_laser">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<visual>
 			<geometry>
 				<cylinder length="0.04" radius="0.03"/>
@@ -296,6 +368,11 @@
 
 		<!-- Camera -->
 		<link name="camera_link">
+			<inertial>
+      			<origin xyz="0 0 0" rpy="0 0 0"/>
+      			<mass value="1.0" />
+      			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
+			</inertial>
 			<!-- <inertial>
 				<mass value="${camera_mass}"/>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
