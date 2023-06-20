@@ -6,7 +6,9 @@
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 
-roscore &
-sleep 3
+export ROS_MASTER_URI=http://nano.local:11311
 
-roslaunch raptor_robot bringup_raptor.launch
+# roscore &
+# sleep 3
+
+roslaunch raptor_robot bringup_command.launch
