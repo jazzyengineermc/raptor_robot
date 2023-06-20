@@ -79,6 +79,12 @@
 				<color rgba="0.8 0.8 0.0 1" />
 			</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.54" radius="0.014"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="pvc_up_left_to_chassis_frame" type="fixed">
@@ -102,6 +108,12 @@
 				<color rgba="0.8 0.8 0.0 1" />
 			</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.54" radius="0.014"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="pvc_up_right_to_chassis_frame" type="fixed">
@@ -125,6 +137,12 @@
 				<color rgba="0.8 0.8 0.0 1" />
 			</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.4" radius="0.014"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="pvc_horizontal_to_chassis_frame" type="fixed">
@@ -148,6 +166,12 @@
 				<color rgba="0.8 0.8 0.0 1" />
 			</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.64" radius="0.014"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="pvc_45_left_to_chassis_frame" type="fixed">
@@ -171,6 +195,12 @@
 				<color rgba="0.8 0.8 0.0 1" />
 			</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.64" radius="0.014"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="pvc_45_right_to_chassis_frame" type="fixed">
@@ -194,6 +224,12 @@
         		<color rgba="0 0 0.8 1"/>
       		</material>
 			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 0 0"/>
+				<geometry>
+					<cylinder length="0.36" radius="0.15"/>
+				</geometry>
+			</collision>
 		</link>
 		
 		<joint name="bucket_to_chassis_frame" type="fixed">
@@ -373,16 +409,6 @@
       			<mass value="1.0" />
       			<inertia ixx="0.0741666666667" ixy="0.0" ixz="0.0" iyy="0.0585416666667" iyz="0.0" izz="0.0260416666667"/>
 			</inertial>
-			<!-- <inertial>
-				<mass value="${camera_mass}"/>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<inertia
-					ixx="1e-6" ixy="0.0" ixz="0.0"
-					iyy="1e-6" iyz="0.0"
-					izz="1e-6"
-				/>
-			</inertial>
-			-->
 
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0"/>
