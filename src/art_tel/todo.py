@@ -1,6 +1,19 @@
 # Complete code
 import sys
 import datetime
+import pyttsx3
+from Espeak import *
+
+# Mouth --- default old voice
+engine = pyttsx3.init()
+engine.setProperty("rate", 180)
+        
+voicef = 'mb-us1 ' # For female voice
+voicem = 'mb-us2 ' # For Male voice
+vmbrit = 'mb-en1 ' # Male Brittish Voice
+
+voice = vmbrit
+es = Espeak()
 
 
 def help():
@@ -26,7 +39,14 @@ def add(s):
 def ls():
 	try:
 
-		nec()
+		d = {}
+		f = open('todo.lst', 'r')
+		c = 1
+		for line in f:
+			line = line.strip('\n')
+			es.talk(voice, speech=str(c) + str(line))
+			d.update({c: line})
+			c = c+1
 		l = len(d)
 		k = l
 
@@ -41,8 +61,37 @@ def ls():
 
 def deL(no):
 	try:
+		if no == 'one':
+			no = 1
+		if no == 'two':
+			no = 2
+		if no == 'three':
+			no = 3
+		if no == 'four':
+			no = 4
+		if no == 'five':
+			no = 5
+		if no == 'six':
+			no = 6
+		if no == 'seven':
+			no = 7
+		if no == 'eight':
+			no = 8
+		if no == 'ate':
+			no = 8
+		if no == 'nine':
+			no = 9
+		if no == 'ten':
+			no = 10
+		print(no)
 		no = int(no)
-		nec()
+		d = {}
+		f = open('todo.lst', 'r')
+		c = 1
+		for line in f:
+			line = line.strip('\n')
+			d.update({c: line})
+			c = c+1
 		with open("todo.lst", "r+") as f:
 			lines = f.readlines()
 			f.seek(0)
@@ -58,8 +107,36 @@ def deL(no):
 
 def done(no):
 	try:
-
-		nec()
+		if no == 'one':
+			no = 1
+		if no == 'two':
+			no = 2
+		if no == 'three':
+			no = 3
+		if no == 'four':
+			no = 4
+		if no == 'five':
+			no = 5
+		if no == 'six':
+			no = 6
+		if no == 'seven':
+			no = 7
+		if no == 'eight':
+			no = 8
+		if no == 'ate':
+			no = 8
+		if no == 'nine':
+			no = 9
+		if no == 'ten':
+			no = 10
+		print(no)
+		d = {}
+		f = open('todo.lst', 'r')
+		c = 1
+		for line in f:
+			line = line.strip('\n')
+			d.update({c: line})
+			c = c+1
 		no = int(no)
 		f = open('done.txt', 'a')
 		st = 'x '+str(datetime.datetime.today()).split()[0]+' '+d[no]
@@ -80,9 +157,15 @@ def done(no):
 
 
 def report():
-	nec()
+	d = {}
+	f = open('todo.lst', 'r')
+	c = 1
+	for line in f:
+		line = line.strip('\n')
+		d.update({c: line})
+		c = c+1
 	try:
-
+		don = {}
 		nf = open('done.txt', 'r')
 		c = 1
 		for line in nf:

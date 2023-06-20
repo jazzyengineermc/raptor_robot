@@ -126,15 +126,23 @@ class raptor_ai:
                             command = command.replace('\n', '')
                             print(command)
                             todo.add(s=str(command))
-                            es.talk(voice, speech='add to list code needed')
+                            es.talk(voice, speech='added' + str(command) + 'to the to do list')
                             command = ''
-                        elif 'remove' in command:
-                            es.talk(voice, speech='remove from list code needed')
+                        elif 'delete' in command:
+                            command = command.replace('delete ', '')
+                            command = command.replace(' from my to do list', '')
+                            command = command.strip()
+                            print(command)
+                            todo.deL(no=command)
+                            es.talk(voice, speech='removed number. ' + str(command) + ' from the todo list')
                             command = ''
                         elif 'read' in command:
-                            es.talk(voice, speech='list is as follows... err,can you teach me to read?')
+                            es.talk(voice, speech='list is as follows...') 
+                            todo.ls()
                             command = ''
                         else:
+                            es.talk(voice, speech='I can add items to your list and I can read the list to you')
+                            es.talk(voice, speech='Take note of the number as I read them as it is the number that I need to delete them')
                             es.talk(voice, speech='Until more input is received, I only see one item to do')
                             es.talk(voice, speech='Take over the world!')
                             command = ''
