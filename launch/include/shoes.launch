@@ -1,0 +1,10 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+    
+    <!-- rosserial_arduino to Arduino Mega -->
+    <node name="shoes" pkg="rosserial_arduino" type="serial_node.py" args="/dev/ttyACM0" />
+
+    <!-- Odometry node -->
+    <node name="odometry_node" pkg="raptor_robot" type="odometry.py" />
+
+</launch>

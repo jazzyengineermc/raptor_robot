@@ -1,9 +1,20 @@
 <?xml version="1.0"?>
-	<robot name="raptor">
+	<robot name="raptor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find raptor_robot)/urdf/include/material.xacro"/>
+	<xacro:include filename="$(find raptor_robot)/urdf/include/gazebo.xacro"/>
   		<link name="base_link">
 		</link>
 
 		<link name="chassis_frame">
+			<collision>
+			<geometry>
+				<box size="0.80 0.54 0.22"/>
+			</geometry>
+			<origin rpy="0 0 0" xyz="0 0 0.10"/>
+			<material name="red">
+				<color rgba="1 0 0 1"/>
+			</material>
+			</collision>
 			<visual>
 			<geometry>
 				<box size="0.80 0.54 0.22"/>
@@ -12,16 +23,34 @@
 			<material name="red">
 				<color rgba="1 0 0 1"/>
 			</material>
-			<!--
-			<material name="yellow">
-				<color rgba="0.8 0.8 0.0 1" />
-			</material>
-			 
-			<material name="white">
-				<color rgba="1 1 1 1"/>
-			</material>
-			-->
 			</visual>
+
+			<!-- caster -->
+			<collision name="caster_rear_collision">
+    			<origin rpy=" 0 0 0" xyz="-0.38 0 0.01"/>
+    			<geometry>
+      				<sphere radius="0.11"/>
+    			</geometry>
+    			<surface>
+      				<friction>
+        				<ode>
+          					<mu>0</mu>
+          					<mu2>0</mu2>
+          					<slip1>1.0</slip1>
+          					<slip2>1.0</slip2>
+        				</ode>
+      				</friction>
+    			</surface>
+  			</collision>
+  			<visual name="caster_rear_visual">
+    			<origin rpy=" 0 0 0" xyz="-0.38 0 0.01"/>
+    			<geometry>
+      				<sphere radius="0.11"/>
+    			</geometry>
+				<material name="black">
+					<color rgba="0.0 0.0 0.0 1.0"/>
+				</material>
+  			</visual>
 		</link>
 		
 		<joint name="base_to_chassis_frame" type="fixed">
@@ -150,7 +179,7 @@
 			</visual>
   		</link>
  
-		<joint name="base_to_lwheel" type="fixed">
+		<joint name="base_to_lwheel" type="continuous">
 			<parent link="base_link"/>
 			<child link="lwheel"/>
 			<origin xyz="0.13 0.21 0.14" rpy="1.5708 0 0"/>
@@ -168,7 +197,7 @@
 			</visual>
 		</link>
 		
-		<joint name="base_to_rwheel" type="fixed">
+		<joint name="base_to_rwheel" type="continuous">
 			<parent link="base_link"/>
 			<child link="rwheel"/>
 			<origin xyz="0.13 -0.21 0.14" rpy="-1.5708 0 0"/>
@@ -303,60 +332,5 @@
 			<child link="camera_link" />
 			<axis xyz="0 0 0"/>
 		</joint>
-		
-		<gazebo>
-			<plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
-
-				<!-- Plugin update rate in Hz 
-				<updateRate>${update_rate}</updateRate>
-				-->
-				<updateRate>10</updateRate>
-
-				<!-- Name of left joint, defaults to `left_joint` -->
-				<leftJoint>base_to_lwheel</leftJoint>
-
-				<!-- Name of right joint, defaults to `right_joint` -->
-				<rightJoint>base_to_rwheel</rightJoint>
-
-				<!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
-				<wheelSeparation>0.45</wheelSeparation>
-
-				<!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
-				<wheelDiameter>0.285</wheelDiameter>
-
-				<!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-				<wheelAcceleration>1.0</wheelAcceleration>
-
-				<!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-				<wheelTorque>20</wheelTorque>
-
-				<!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-				<commandTopic>cmd_vel</commandTopic>
-
-				<!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-				<odometryTopic>odom</odometryTopic>
-
-				<!-- Odometry frame, defaults to `odom` -->
-				<odometryFrame>odom</odometryFrame>
-
-				<!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-				<robotBaseFrame>base_footprint</robotBaseFrame>
-
-				<!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-				<odometrySource>1</odometrySource>
-
-				<!-- Set to true to publish transforms for the wheel links, defaults to false -->
-				<publishWheelTF>true</publishWheelTF>
-
-				<!-- Set to true to publish transforms for the odometry, defaults to true -->
-				<publishOdom>true</publishOdom>
-
-				<!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-				<publishWheelJointState>true</publishWheelJointState>
-
-				<!-- Set to true to swap right and left wheels, defaults to true -->
-				<legacyMode>false</legacyMode>
-			</plugin>
-		</gazebo>
 
 	</robot>

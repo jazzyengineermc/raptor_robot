@@ -16,12 +16,14 @@
         <arg name="headless" value="$(arg headless)"/>
     </include>
 
-    <!-- Load the URDF into the ROS Parameter Server -->
+    <include file="$(find raptor_robot)/launch/include/spawn.launch" />
+    
+    <!-- Load the URDF into the ROS Parameter Server 
     <param name="robot_description"
-       command="cat $(find raptor_description)/urdf/raptor.urdf" />
-
-    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+       command="$(find xacro)/xacro - -inorder $(find raptor_robot)/urdf/raptor.urdf" />
+    -->
+    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot 
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-       args="-urdf -model raptor -param robot_description"/>
-
+       args="-urdf -param robot_description -model raptor -x 0 -y 0 -z 0.5"/>
+    -->
 </launch>
