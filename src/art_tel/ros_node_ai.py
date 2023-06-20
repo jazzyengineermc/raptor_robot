@@ -12,6 +12,7 @@ import pyjokes
 from Espeak import *
 import subprocess
 from time import sleep
+import todo as todo
 
 
 #--- Define our Class
@@ -102,7 +103,7 @@ class raptor_ai:
                     if 'time' in command:
                         time = datetime.datetime.now().strftime('%I:%M %p')
                         es.talk(voice, speech=('The current time is' + time))
-                        command = 'help'
+                        command = ''
                     elif 'take my picture' in command:
                         es.talk(voice, speech='Say lie po batteries')
                         dtg = datetime.datetime.now().strftime('%Y%d%H%M')
@@ -112,12 +113,25 @@ class raptor_ai:
                         es.talk(voice, speech='I\'m sure it was me, you could not have broken the camera')
                         command = ''
                     elif 'to do list' in command:
-                        es.talk(voice, speech='add to list code needed')
-                        es.talk(voice, speech='remove from list code needed')
-                        es.talk(voice, speech='how many items in list to read code needed')
-                        es.talk(voice, speech='Until more code is added, I only see one item to do')
-                        es.talk(voice, speech='Take over the world!')
-                        command = ''
+                        if 'add' in command:
+                            # print(command)
+                            command = command.replace('add ', '')
+                            command = command.replace(' to my to do list', '')
+                            command = command.replace('\n', '')
+                            print(command)
+                            todo.add(s=str(command))
+                            es.talk(voice, speech='add to list code needed')
+                            command = ''
+                        elif 'remove' in command:
+                            es.talk(voice, speech='remove from list code needed')
+                            command = ''
+                        elif 'read' in command:
+                            es.talk(voice, speech='list is as follows... err,can you teach me to read?')
+                            command = ''
+                        else:
+                            es.talk(voice, speech='Until more input is received, I only see one item to do')
+                            es.talk(voice, speech='Take over the world!')
+                            command = ''
                     # Internet required commands
                     elif 'tell me a joke' in command:
                         # testnet = "unknown"
@@ -211,12 +225,14 @@ class raptor_ai:
                         elif 'reboot' in command:
                             es.talk(voice, speech='As you wish')
                             sleep(3)
-                            # os.system("sudo init 6")
+                            reboot_result = subprocess.check_output("sudo init 6", shell=True)
+                            print(reboot_result.decode())
                             command = ''
                         elif 'power off' in command:
                             es.talk(voice, speech='O K, but only because you asked')
                             sleep(3)
-                            # os.system("sudo init 0")
+                            poweroff_result = subprocess.check_output("sudo init 0", shell=True)
+                            print(poweroff_result.decode())
                             command = ''
                         else:
                             es.talk(voice, speech='I don\'t know where i\'m going, or where I am.. DANGER, Will Robinson, DANGER.. Classic')
