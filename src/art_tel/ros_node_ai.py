@@ -96,6 +96,12 @@ class raptor_ai:
             if recognizer.AcceptWaveform(command):
                 command = (recognizer.Result())
                 command = command.lower()
+                command = command.replace('{\n', '')
+                command = command.replace('}', '')
+                command = command.strip()
+                command = command.replace('"text" : "', '')
+                command = command.replace('"', '')
+                command = command.strip()
                 if 'raptor' in command:
                     command = command.replace('raptor', '')
                     print(command)
@@ -201,13 +207,18 @@ class raptor_ai:
                         command = ''
                     elif 'describe yourself' in command:
                         es.talk(voice, speech='I am an advanced robotic, eh, eye, in my innphant stages of development')
-                        es.talk(voice, speech='Currently made up of only 8 sensors, 37 nodes, and several thousand lines of code that make basic decisions')
+                        es.talk(voice, speech='Currently made up of only 9 sensors, 37 nodes, and several thousand lines of code that make basic decisions')
                         es.talk(voice, speech='I can map and navigate around my enviroment and help get basic information, like the current speed of sound based on current atmospheric conditions')
                         # es.talk(voice, shpeech='')
                     elif 'speed of sound' in command:
-                        # speedofsound = 331.4 + (0.606 * temp) + (0.0124 * humidity)
-                        es.talk(voice, speech='Having problems reading the data from the sensor')
-                        es.talk(voice, speech='Once I have that data I can factor in the temperature and humidity of the base speed of three hundred and thirty one point four meters per second')
+                        get_temp(self, temperature='unknown')
+                        print(self.temperature)
+                        temperature = self.temperature
+                        get_wet(self, humidity='unknown')
+                        print(self.humidity)
+                        humidity = self.humidity
+                        speedofsound = 331.4 + (0.606 * int(temperature)) + (0.0124 * int(humidity))
+                        es.talk(voice, speech='Current speed of sound is,' + str(speedofsound) + 'meters per second' )
                     # Management and ROS commands
                     elif 'management' in command:
                         if 'slam' in command:
