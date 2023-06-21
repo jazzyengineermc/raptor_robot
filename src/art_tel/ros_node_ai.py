@@ -124,7 +124,7 @@ class raptor_ai:
                             command = command.replace('add ', '')
                             command = command.replace(' to my to do list', '')
                             command = command.replace('\n', '')
-                            print(command)
+                            # print(command)
                             todo.add(s=str(command))
                             es.talk(voice, speech='added' + str(command) + 'to the to do list')
                             command = ''
@@ -132,7 +132,7 @@ class raptor_ai:
                             command = command.replace('delete ', '')
                             command = command.replace(' from my to do list', '')
                             command = command.strip()
-                            print(command)
+                            # print(command)
                             todo.deL(no=command)
                             es.talk(voice, speech='removed number. ' + str(command) + ' from the todo list')
                             command = ''
@@ -208,9 +208,10 @@ class raptor_ai:
                         es.talk(voice, speech='Say, raptor, what is the weather for a forcast')
                         es.talk(voice, speech='management routines, think real geekee, admin stuff')
                         es.talk(voice, speech='I can lead the way where ever you go, I follow in front.')
+                        es.talk(voice, speech='I can also pass control to thr R C transmitter')
                         es.talk(voice, speech='and I can stop stalking, i mean, following you')
                         es.talk(voice, speech='To take your picture say, raptor take my picture')
-                        es.talk(voice, speech='I can also add, remove, and tell you whats on the to do list')
+                        es.talk(voice, speech='I can also add, remove, and read whats on the to do list')
                         es.talk(voice, speech='and I can tell you a joke, raptor tell me a joke')
                         command = ''
                     elif 'describe yourself' in command:
@@ -225,7 +226,7 @@ class raptor_ai:
                         get_wet(self, humidity='unknown')
                         print(self.humidity)
                         humidity = self.humidity
-                        speedofsound = 331.4 + (0.606 * int(temperature)) + (0.0124 * int(humidity))
+                        speedofsound = round(331.4 + (0.606 * int(temperature)) + (0.0124 * int(humidity)),2)
                         es.talk(voice, speech='Current speed of sound is,' + str(speedofsound) + 'meters per second' )
                     # Management and ROS commands
                     elif 'management' in command:
@@ -284,6 +285,9 @@ class raptor_ai:
                     elif 'say goodbye' in command:
                         es.talk(voice, speech='so long, farewell, alveetazane, goodbye')
                         es.talk(voice, speech='to you, and you, and you and you and youu')
+                        command = ''
+                    elif 'say goodnight' in command:
+                        es.talk(voice, speech='Goodnight, pleasant dreams')
                         command = ''
                     elif 'power off' in command:
                         es.talk(voice, speech='I\'m sorry Dave, I can\'t do that')

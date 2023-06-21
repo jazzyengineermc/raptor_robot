@@ -65,6 +65,8 @@ def deL(no):
 			no = 1
 		if no == 'two':
 			no = 2
+		if no == 'to':
+			no = 2
 		if no == 'three':
 			no = 3
 		if no == 'four':
@@ -110,6 +112,8 @@ def done(no):
 		if no == 'one':
 			no = 1
 		if no == 'two':
+			no = 2
+		if no == 'to':
 			no = 2
 		if no == 'three':
 			no = 3
