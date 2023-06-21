@@ -58,7 +58,7 @@
     </plugin>
   </sensor>
 </gazebo>
-
+<!--
 <gazebo reference="rear_laser">
   <sensor type="ray" name="head_hokuyo_sensor">
     <pose>0 0 0 0 0 0</pose>
@@ -90,7 +90,7 @@
     </plugin>
   </sensor>
 </gazebo>
-
+-->
 <gazebo reference="chassis_frame">
   <visual name="caster_front_visual">
     <material>

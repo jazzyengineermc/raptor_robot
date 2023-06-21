@@ -18,13 +18,13 @@
 
     <include file="$(find raptor_robot)/launch/include/spawn.launch" />
 
-    <include file="$(find raptor_robot)/launch/include/laserscan_multi_merger.launch" />
+    <include file="$(find raptor_robot)/launch/include/raptor_hslam_gazebo.launch" />
 
-    <include file="$(find raptor_robot)/launch/raptor_hslam.launch" />
+    <include file="$(find raptor_robot)/launch/include/move_base.launch" />
 
-    <include file="$(find raptor_robot)/launch/raptor_rviz_gazebo.launch" />
-    
-    <!-- Load the URDF into the ROS Parameter Server 
+    <include file="$(find raptor_robot)/launch/include/raptor_rviz_gazebo.launch" />
+    <!--
+     Load the URDF into the ROS Parameter Server 
     <param name="robot_description"
        command="$(find xacro)/xacro - -inorder $(find raptor_robot)/urdf/raptor.urdf" />
     -->
