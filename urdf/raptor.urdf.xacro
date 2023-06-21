@@ -265,6 +265,7 @@
 			<parent link="base_link"/>
 			<child link="lwheel"/>
 			<origin xyz="0.13 0.21 0.14" rpy="1.5708 0 0"/>
+			<axis xyz="0.0 0.0 -1.0"/>
 		</joint>
 		
 		<link name="rwheel">
@@ -294,6 +295,7 @@
 			<parent link="base_link"/>
 			<child link="rwheel"/>
 			<origin xyz="0.13 -0.21 0.14" rpy="-1.5708 0 0"/>
+			<axis xyz="0.0 0.0 1.0"/>
 		</joint>
 
 		<link name="front_laser">

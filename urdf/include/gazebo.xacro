@@ -30,7 +30,7 @@
 <gazebo reference="front_laser">
   <sensor type="ray" name="head_hokuyo_sensor">
     <pose>0 0 0 0 0 0</pose>
-    <visualize>true</visualize>
+    <visualize>false</visualize>
     <update_rate>20</update_rate>
     <ray>
       <scan>
@@ -54,11 +54,11 @@
     </ray>
     <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
       <topicName>/scan</topicName>
-      <frameName>laser</frameName>
+      <frameName>front_laser</frameName>
     </plugin>
   </sensor>
 </gazebo>
-<!--
+
 <gazebo reference="rear_laser">
   <sensor type="ray" name="head_hokuyo_sensor">
     <pose>0 0 0 0 0 0</pose>
@@ -86,11 +86,11 @@
     </ray>
     <plugin name="gazebo_ros_head_hokuyo_controller2" filename="libgazebo_ros_laser.so">
       <topicName>/rear_laser_scan</topicName>
-      <frameName>laser</frameName>
+      <frameName>rear_laser</frameName>
     </plugin>
   </sensor>
 </gazebo>
--->
+
 <gazebo reference="chassis_frame">
   <visual name="caster_front_visual">
     <material>
