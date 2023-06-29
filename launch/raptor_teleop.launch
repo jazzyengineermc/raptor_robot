@@ -1,4 +1,4 @@
 <launch>
-  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="_speed:=0.5 _turn:=0.5" output="screen" >
+  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="_speed:=0.09 _turn:=0.09" output="screen" >
   </node>
 </launch>

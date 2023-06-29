@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /LaserScan1
+        - /TF1/Tree1/odom1
       Splitter Ratio: 0.5
     Tree Height: 690
   - Class: rviz/Selection
@@ -25,7 +26,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -251,12 +252,44 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        base_footprint:
+          Value: false
+        base_link:
+          Value: true
+        bucket:
+          Value: false
+        camera_link:
+          Value: true
+        chassis_frame:
+          Value: false
+        front_laser:
+          Value: true
+        lwheel:
+          Value: true
+        odom:
+          Value: true
+        pvc_45_left:
+          Value: false
+        pvc_45_right:
+          Value: false
+        pvc_horizontal:
+          Value: false
+        pvc_up_left:
+          Value: false
+        pvc_up_right:
+          Value: false
+        rear_laser:
+          Value: true
+        rwheel:
+          Value: true
+        scan_multi:
+          Value: false
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -264,9 +297,37 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        odom:
+          base_link:
+            base_footprint:
+              {}
+            camera_link:
+              {}
+            chassis_frame:
+              bucket:
+                {}
+              pvc_45_left:
+                {}
+              pvc_45_right:
+                {}
+              pvc_horizontal:
+                {}
+              pvc_up_left:
+                {}
+              pvc_up_right:
+                {}
+            front_laser:
+              {}
+            lwheel:
+              {}
+            rear_laser:
+              {}
+            rwheel:
+              {}
+            scan_multi:
+              {}
       Update Interval: 0
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -295,7 +356,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.480941772460938
+      Distance: 2.0067434310913086
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -311,9 +372,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5097976326942444
+      Pitch: 0.3747977614402771
       Target Frame: <Fixed Frame>
-      Yaw: 4.725006580352783
+      Yaw: 4.135003566741943
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 6.814720153808594
