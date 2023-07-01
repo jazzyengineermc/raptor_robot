@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 
 <launch>
-
+<!--
+  <include file="$(find raptor_robot)/launch/raptor_rsp.launch" />
+  <node name="shoes" pkg="rosserial_arduino" type="serial_node.py" args="/dev/ttyACM0" />
+  <include file="$(find raptor_robot)/launch/include/raptor_lasers.launch" />
+-->
   <arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
 
-  <param name="/use_sim_time" value="true"/>
+  <param name="/use_sim_time" value="false"/>
 
   <include file="$(find raptor_robot)/launch/include/mapping_default.launch"/>
 
@@ -13,4 +17,5 @@
     <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
   </include>
 
+  <include file="$(find raptor_robot)/launch/include/move_base.launch" /> 
 </launch>
