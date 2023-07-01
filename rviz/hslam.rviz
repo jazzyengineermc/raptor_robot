@@ -23,7 +23,7 @@ Panels:
     Splitter Ratio: 0.5
   - Class: rviz/Time
     Name: Time
-    SyncMode: 0
+    SyncMode: 3
     SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
