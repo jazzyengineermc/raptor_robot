@@ -38,7 +38,7 @@ DHT dht(DHTPIN, DHTTYPE);
 double w_r=0, w_l=0;
 
 //wheel_rad is the wheel radius ,wheel_sep is
-double wheel_rad = 0.02, wheel_sep = 0.45;
+double wheel_rad = 0.02, wheel_sep = 0.34;
 
 volatile unsigned int templ, counterl = 0; //This variable will increase or decrease depending on the rotation of encoder
 volatile unsigned int tempr, counterr = 0; //This variable will increase or decrease depending on the rotation of encoder
@@ -264,37 +264,37 @@ void Motors_init(){
 
 void MotorL(int Pulse_Width1){
  if (Pulse_Width1 > 0){
-    analogWrite(EN_LL, 0);    
+    digitalWrite(EN_LL, LOW);    
     analogWrite(EN_RL, Pulse_Width1);
  }
 
  if (Pulse_Width1 < 0){
     Pulse_Width1=abs(Pulse_Width1);
-    analogWrite(EN_RL, 0);    
+    digitalWrite(EN_RL, LOW);    
     analogWrite(EN_LL, Pulse_Width1);
  }
 
  if (Pulse_Width1 == 0){
-    analogWrite(EN_RL, 0);
-    analogWrite(EN_LL, 0);  
+    digitalWrite(EN_RL, LOW);
+    digitalWrite(EN_LL, LOW);  
  }
 }
 
 
 void MotorR(int Pulse_Width2){
  if (Pulse_Width2 > 0){
-    analogWrite(EN_RR, 0);
+    digitalWrite(EN_RR, LOW);
     analogWrite(EN_LR, Pulse_Width2);
  }
 
  if (Pulse_Width2 < 0){
     Pulse_Width2=abs(Pulse_Width2);
-    analogWrite(EN_LR, 0);    
+    digitalWrite(EN_LR, LOW);    
     analogWrite(EN_RR, Pulse_Width2);
  }
 
  if (Pulse_Width2 == 0){
-    analogWrite(EN_RR, 0);
-    analogWrite(EN_LR, 0);
+    digitalWrite(EN_RR, LOW);
+    digitalWrite(EN_LR, LOW);
  }
 }
