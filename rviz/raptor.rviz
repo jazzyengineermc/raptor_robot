@@ -5,6 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /LaserScan1
+        - /LaserScan1/Status1
       Splitter Ratio: 0.5
     Tree Height: 690
   - Class: rviz/Selection
@@ -256,6 +258,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_footprint:
+          Value: true
         base_link:
           Value: true
         bucket:
@@ -266,11 +270,11 @@ Visualization Manager:
           Value: false
         front_laser:
           Value: true
-        laser:
-          Value: true
         lwheel:
           Value: true
         map:
+          Value: true
+        odom:
           Value: true
         pvc_45_left:
           Value: false
@@ -298,34 +302,35 @@ Visualization Manager:
       Show Names: true
       Tree:
         map:
-          base_link:
-            camera_link:
-              {}
-            chassis_frame:
-              bucket:
+          odom:
+            base_link:
+              base_footprint:
                 {}
-              pvc_45_left:
+              camera_link:
                 {}
-              pvc_45_right:
+              chassis_frame:
+                bucket:
+                  {}
+                pvc_45_left:
+                  {}
+                pvc_45_right:
+                  {}
+                pvc_horizontal:
+                  {}
+                pvc_up_left:
+                  {}
+                pvc_up_right:
+                  {}
+              front_laser:
                 {}
-              pvc_horizontal:
+              lwheel:
                 {}
-              pvc_up_left:
+              rear_laser:
                 {}
-              pvc_up_right:
+              rwheel:
                 {}
-            front_laser:
-              {}
-            laser:
-              {}
-            lwheel:
-              {}
-            rear_laser:
-              {}
-            rwheel:
-              {}
-            scan_multi:
-              {}
+              scan_multi:
+                {}
           scanmatcher_frame:
             {}
       Update Interval: 0
