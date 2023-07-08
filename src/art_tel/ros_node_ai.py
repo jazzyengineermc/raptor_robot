@@ -102,7 +102,15 @@ class raptor_ai:
                 command = command.replace('"text" : "', '')
                 command = command.replace('"', '')
                 command = command.strip()
-                if 'raptor' in command:
+                if 'robot' in command:
+                    command = command.replace('robot', '')
+                    print(command)
+                    if 'name' in command:
+                        es.talk(voice, speech=('My name is Raptor'))
+                        command = ''
+                    else:
+                        continue
+                elif 'raptor' in command:
                     command = command.replace('raptor', '')
                     print(command)
                     # Basic local commands
