@@ -274,15 +274,17 @@ class raptor_ai:
                     # Stop command
                     elif 'stop' in command:
                         self.rosnode1_pub.publish('none')
+                        cancel_result = subprocess.check_output("rostopic pub /move_base/cancel actionlib_msgs/GoalID -- {}", shell=True)
+                        print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')
                         command = ''
-                    elif 'say hello' in command:
+                    elif 'hello' in command:
                         es.talk(voice, speech='Greetings and salutations')
                         es.talk(voice, speech='I was wondering if you could point me in the direction to the nearest space X facility, I need a ride to mars')
                         command = ''
-                    elif 'say goodbye' in command:
+                    elif 'goodbye' in command:
                         es.talk(voice, speech='so long, farewell, alveetazane, goodbye')
                         es.talk(voice, speech='to you, and you, and you and you and youu')
                         command = ''
