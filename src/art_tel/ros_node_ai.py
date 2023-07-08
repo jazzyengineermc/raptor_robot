@@ -208,7 +208,7 @@ class raptor_ai:
                         es.talk(voice, speech='Say, raptor, what is the weather for a forcast')
                         es.talk(voice, speech='management routines, think real geekee, admin stuff')
                         es.talk(voice, speech='I can lead the way where ever you go, I follow in front.')
-                        es.talk(voice, speech='I can also pass control to thr R C transmitter')
+                        es.talk(voice, speech='I can also pass control to the R C transmitter')
                         es.talk(voice, speech='and I can stop stalking, i mean, following you')
                         es.talk(voice, speech='To take your picture say, raptor take my picture')
                         es.talk(voice, speech='I can also add, remove, and read whats on the to do list')
@@ -274,8 +274,8 @@ class raptor_ai:
                     # Stop command
                     elif 'stop' in command:
                         self.rosnode1_pub.publish('none')
-                        cancel_result = subprocess.check_output("rostopic pub /move_base/cancel actionlib_msgs/GoalID -- {}", shell=True)
-                        print(cancel_result.decode())
+                        # cancel_result = subprocess.check_output("rostopic pub /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
+                        # print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')
@@ -288,7 +288,7 @@ class raptor_ai:
                         es.talk(voice, speech='so long, farewell, alveetazane, goodbye')
                         es.talk(voice, speech='to you, and you, and you and you and youu')
                         command = ''
-                    elif 'say goodnight' in command:
+                    elif 'goodnight' in command:
                         es.talk(voice, speech='Goodnight, pleasant dreams')
                         command = ''
                     elif 'power off' in command:
