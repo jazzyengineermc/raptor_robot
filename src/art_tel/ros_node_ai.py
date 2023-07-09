@@ -178,6 +178,9 @@ class raptor_ai:
                         es.talk(voice, speech='hubba, hubba, she can flash her headlights at me any day')
                         es.talk(voice, speech='nice tail pipes too, would you give her my I  P address?')
                         command = ''
+                    elif 'meaning of life' in command:
+                        es.talk(voice, speech='fourty two. it is the answer to life and everything. Thank you deep thought for computing that answer over millions of years')
+                        command = ''
                     elif 'how are you' in command:
                         es.talk(voice, speech='I\'m here and responding, so all seems O K')
                         es.talk(voice, speech='more code needed for any real feeling sharing')
