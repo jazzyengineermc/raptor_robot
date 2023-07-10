@@ -52,7 +52,7 @@
   </node>
     
   <!--<node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map nav 100"/>-->
-  <node pkg="tf" type="static_transform_publisher" name="base_laser_bc" args="0 0 0 0 0 0 base_link front_laser 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_laser_bc" args="0.40 0.0 0.38 0 0 0 base_link laser 100"/>
 </launch>
   
   

@@ -298,7 +298,7 @@
 			<axis xyz="0.0 0.0 1.0"/>
 		</joint>
 
-		<link name="front_laser">
+		<link name="laser">
 			<inertial>
       			<origin xyz="0 0 0" rpy="0 0 0"/>
       			<mass value="1.0" />
@@ -324,7 +324,7 @@
 
 		<joint name="base_link_to_front_laser" type="fixed">
 			<parent link="base_link"/>
-			<child link="front_laser"/>
+			<child link="laser"/>
 			<!--
 			<origin xyz="0.163 0 0.3" rpy="0.0 0.0 3.141592"/>
 			-->
