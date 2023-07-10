@@ -11,8 +11,10 @@
     
     <node name="rc_proxy" pkg="raptor_robot" type="rc_arduino_proxy.py" />
     <node name="raptor_ai" pkg="raptor_robot" type="ros_node_ai.py" />
-    <include file="$(find raptor_robot)/launch/include/raptor_lasers.launch" />
 
+    <!--
+    <include file="$(find raptor_robot)/launch/include/raptor_lasers.launch" />
+-->
 
     <!--
     <include file="$(find raptor_robot)/launch/include/eyes.launch" />
