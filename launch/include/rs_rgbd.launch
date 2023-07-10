@@ -75,13 +75,9 @@ Processing enabled by this node:
   <arg name="color_fps"           default="-1"/>
   <arg name="gyro_fps"            default="-1"/>
   <arg name="accel_fps"           default="-1"/>
-  <!--
+
   <arg name="enable_gyro"         default="false"/>
   <arg name="enable_accel"        default="false"/>
-  -->
-
-  <arg name="enable_gyro"         default="true"/>
-  <arg name="enable_accel"        default="true"/>
 
   <arg name="enable_pointcloud"   default="false"/>
   <arg name="enable_sync"         default="true"/>
