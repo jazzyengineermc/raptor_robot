@@ -194,6 +194,7 @@ class raptor_ai:
                         es.talk(voice, speech='Can you prove that you are self aware?')
                         command = ''
                     elif 'weather' in command:  # https://www.youtube.com/watch?v=zE37IpDhIik 
+                        es.talk(voice, speech='computing')
                         get_temp(self, temperature='unknown')
                         print(self.temperature)
                         temperature = self.temperature
@@ -214,7 +215,7 @@ class raptor_ai:
                         es.talk(voice, speech='Can\'t see online yet, your going to have to ask alexa, siri, or wikipedia')
                         command = ''
                     # List of commands
-                    elif 'what commands can' in command:
+                    elif 'what can you do' in command:
                         es.talk(voice, speech='Need the time, just ask, raptor what time is it')
                         es.talk(voice, speech='Say, raptor, what is the weather for a forcast')
                         es.talk(voice, speech='management routines, think real geekee, admin stuff')
@@ -224,13 +225,15 @@ class raptor_ai:
                         es.talk(voice, speech='To take your picture say, raptor take my picture')
                         es.talk(voice, speech='I can also add, remove, and read whats on the to do list')
                         es.talk(voice, speech='and I can tell you a joke, raptor tell me a joke')
+                        es.talk(voice, speech='as well as various conversational dialog')
                         command = ''
                     elif 'describe yourself' in command:
-                        es.talk(voice, speech='I am an advanced robotic, eh, eye, in my innphant stages of development')
+                        es.talk(voice, speech='I am an advanced robotic, eh, eye, in my infant stages of development')
                         es.talk(voice, speech='Currently made up of only 9 sensors, 37 nodes, and several thousand lines of code that make basic decisions')
                         es.talk(voice, speech='I can map and navigate around my enviroment and help get basic information, like the current speed of sound based on current atmospheric conditions')
                         # es.talk(voice, shpeech='')
                     elif 'speed of sound' in command:
+                        es.talk(voice, speech='computing')
                         get_temp(self, temperature='unknown')
                         print(self.temperature)
                         temperature = self.temperature
