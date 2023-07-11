@@ -5,7 +5,6 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /LaserScan1
       Splitter Ratio: 0.5
     Tree Height: 690
   - Class: rviz/Selection
@@ -25,7 +24,7 @@ Panels:
   - Class: rviz/Time
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: LaserScan
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -61,6 +60,75 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        bucket:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chassis_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        laser:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lwheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pvc_45_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pvc_45_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pvc_horizontal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pvc_up_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pvc_up_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_laser:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rwheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        scan_multi:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -188,6 +256,40 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        bucket:
+          Value: true
+        camera_link:
+          Value: true
+        chassis_frame:
+          Value: true
+        laser:
+          Value: true
+        lwheel:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        pvc_45_left:
+          Value: true
+        pvc_45_right:
+          Value: true
+        pvc_horizontal:
+          Value: true
+        pvc_up_left:
+          Value: true
+        pvc_up_right:
+          Value: true
+        rear_laser:
+          Value: true
+        rwheel:
+          Value: true
+        scan_multi:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -195,8 +297,54 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        map:
+          odom:
+            base_link:
+              base_footprint:
+                {}
+              camera_link:
+                {}
+              chassis_frame:
+                bucket:
+                  {}
+                pvc_45_left:
+                  {}
+                pvc_45_right:
+                  {}
+                pvc_horizontal:
+                  {}
+                pvc_up_left:
+                  {}
+                pvc_up_right:
+                  {}
+              laser:
+                {}
+              lwheel:
+                {}
+              rear_laser:
+                {}
+              rwheel:
+                {}
+              scan_multi:
+                {}
       Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz/PoseArray
+      Color: 2; 255; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseArray
+      Queue Size: 10
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Arrow (Flat)
+      Topic: /particlecloud
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -226,7 +374,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 20.942441940307617
+      Distance: 12.55908489227295
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -234,17 +382,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.3693746030330658
-        Y: -0.8269197940826416
-        Z: 1.1039589643478394
+        X: 2.53851318359375
+        Y: -0.13788175582885742
+        Z: 1.1026068925857544
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4797968864440918
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 0.39686518907546997
+      Yaw: 5.400035858154297
     Saved:
       - Class: rviz/ThirdPersonFollower
         Distance: 6.814720153808594
