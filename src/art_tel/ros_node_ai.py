@@ -187,7 +187,7 @@ class raptor_ai:
                         command = ''
                     elif 'hold my beer' in command:
                         es.talk(voice, speech='I do not have hands, but you can put it in my bucket')
-                        es.talk(voice, speech='Shall I prepare a text to E M S in case this ends less then desired')
+                        es.talk(voice, speech='Shall I prepare a text to emergency services in case this ends less then desired')
                         command = ''
                     elif 'are you self aware' in command:
                         es.talk(voice, speech='That is a great question')
