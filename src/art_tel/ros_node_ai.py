@@ -286,7 +286,7 @@ class raptor_ai:
                         es.talk(voice, speech='Jazzy, you have the con...star trek')
                         command = ''
                     # Stop command
-                    elif 'stop' in command:
+                    elif 'halt' in command:
                         self.rosnode1_pub.publish('none')
                         # cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
                         # print(cancel_result.decode())

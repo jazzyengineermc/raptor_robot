@@ -215,8 +215,8 @@ void loop() {
     PulseWidthX = PulsesX;
   }
 
-  PulseWidthY = (PulseWidthY) - 36;
-  PulseWidthX = (PulseWidthX) + 8;
+  PulseWidthY = (PulseWidthY) - 0;
+  PulseWidthX = (PulseWidthX) + 0;
 
   str_msgt.data = PulseWidthY;
   str_msgs.data = PulseWidthX;
