@@ -288,8 +288,8 @@ class raptor_ai:
                     # Stop command
                     elif 'stop' in command:
                         self.rosnode1_pub.publish('none')
-                        cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
-                        print(cancel_result.decode())
+                        # cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
+                        # print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')

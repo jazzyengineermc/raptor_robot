@@ -47,7 +47,7 @@
 <node pkg="amcl" type="amcl" name="amcl" output="screen">
   <param name="use_map_topic" value="true"/>
 
-  <!-- Publish scans from best pose at a max of 10 Hz -->
+  <!  - - Publish scans from best pose at a max of 10 Hz - ->
   <param name="odom_model_type" value="diff"/>
   <param name="odom_alpha5" value="0.1"/>
   <param name="gui_publish_rate" value="10.0"/>
@@ -58,7 +58,7 @@
   <param name="kld_z" value="0.99"/>
   <param name="odom_alpha1" value="0.2"/>
   <param name="odom_alpha2" value="0.2"/>
-  <!-- translation std dev, m -->
+  <!- - translation std dev, m - ->
   <param name="odom_alpha3" value="0.8"/>
   <param name="odom_alpha4" value="0.2"/>
   <param name="laser_z_hit" value="0.5"/>
@@ -68,7 +68,7 @@
   <param name="laser_sigma_hit" value="0.2"/>
   <param name="laser_lambda_short" value="0.1"/>
   <param name="laser_model_type" value="likelihood_field"/>
-  <!-- <param name="laser_model_type" value="beam"/> -->
+  <!- - <param name="laser_model_type" value="beam"/> - ->
   <param name="laser_likelihood_max_dist" value="2.0"/>
   <param name="update_min_d" value="0.1"/>
   <param name="update_min_a" value="0.314"/>
@@ -79,7 +79,7 @@
   <param name="recovery_alpha_slow" value="0.0"/>
   <param name="recovery_alpha_fast" value="0.0"/>
   <param name="receive_map_topic" value="true"/>
-  <!--  When set to true, AMCL will only use the first map it subscribes to, rather than updating each time a new one is received. -->
+  <!- -  When set to true, AMCL will only use the first map it subscribes to, rather than updating each time a new one is received. - ->
   <param name="first_map_only" value="false"/>
 
 </node>
