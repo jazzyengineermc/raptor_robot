@@ -12,6 +12,7 @@
     <node name="rc_proxy" pkg="raptor_robot" type="rc_arduino_proxy.py" />
 
     <include file="$(find raptor_robot)/launch/include/rplidar.launch" />
+    <include file="$(find raptor_robot)/launch/include/usb_cam.launch" />
 <!--
     <node pkg="tf" type="static_transform_publisher" name="base_laser_bc" args="0.40 0.0 0.38 0 0 0 base_link laser 100"/>
 
