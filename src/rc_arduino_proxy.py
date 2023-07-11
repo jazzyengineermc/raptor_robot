@@ -26,14 +26,14 @@ class RcArduinoInput():
         self.ros_control_sub  = rospy.Subscriber("raptor/control", String, self.update_control)
         rospy.loginfo("> Subscriber corrrectly initialized")
         
-        self._pwm_min = 980
-        self._pwm_max = 1930
+        self._pwm_min = 1000
+        self._pwm_max = 2000
         
-        self._sign_throttle = 0.2
-        self._sign_steering = 0.5
+        self._sign_throttle = 1
+        self._sign_steering = 1
         
-        self._offset_throttle = 50
-        self._offset_steering = 10
+        self._offset_throttle = 0
+        self._offset_steering = 0
         
         self._values_received = 0
         
@@ -50,12 +50,12 @@ class RcArduinoInput():
         print(self.ros_pub_twist)
 
     def update_throttle(self, message):
-        self.ros_twist_msg.linear.x = self.pwm_to_adimensional(message.data - self._offset_throttle) * self._sign_throttle
+        self.ros_twist_msg.linear.x = self.pwm_to_adimensional(message.data + self._offset_throttle) * self._sign_throttle
         self._values_received += 1
         self._last_time_cmd_rcv = time.time()
         
     def update_steering(self, message):
-        self.ros_twist_msg.angular.z = self.pwm_to_adimensional(message.data - self._offset_steering) * self._sign_steering
+        self.ros_twist_msg.angular.z = self.pwm_to_adimensional(message.data + self._offset_steering) * self._sign_steering
         self._values_received += 1
         self._last_time_cmd_rcv = time.time()
         
