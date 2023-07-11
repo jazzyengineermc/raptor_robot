@@ -26,11 +26,11 @@ class RcArduinoInput():
         self.ros_control_sub  = rospy.Subscriber("raptor/control", String, self.update_control)
         rospy.loginfo("> Subscriber corrrectly initialized")
         
-        self._pwm_min = 980
-        self._pwm_max = 1920
+        self._pwm_min = 1000
+        self._pwm_max = 2000
         
-        self._sign_throttle = 0.2
-        self._sign_steering = 0.4
+        self._sign_throttle = 1
+        self._sign_steering = 1
         
         self._offset_throttle = 0
         self._offset_steering = 0

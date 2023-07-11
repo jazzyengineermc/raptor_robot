@@ -56,6 +56,8 @@ volatile long CurrentTimeX = 0;
 
 int throttle = 0;
 int steering = 0;
+int rc_pwm_L = 0;
+int rc_pwm_R = 0;
 
 float temperature;
 float humidity;
@@ -76,6 +78,13 @@ void messageCb( const geometry_msgs::Twist& msg){
   speed_lin = msg.linear.x;
   w_r = (speed_lin/wheel_rad) + ((speed_ang*wheel_sep)/(2.0*wheel_rad));
   w_l = (speed_lin/wheel_rad) - ((speed_ang*wheel_sep)/(2.0*wheel_rad));
+}
+
+void rcPWM(){
+  int speed_angRC = map(PulseWidthX, 1000, 2000, -30, 30);
+  int speed_linRC = map(PulseWidthY, 1000, 2000, -20, 20);
+  rc_pwm_L = (speed_linRC/wheel_rad) - ((speed_angRC*wheel_sep)/(2.0*wheel_rad));
+  rc_pwm_R = (speed_linRC/wheel_rad) + ((speed_angRC*wheel_sep)/(2.0*wheel_rad));
 }
 
 std_msgs::Int16 str_msg;
@@ -205,9 +214,6 @@ void loop() {
   humidity = dht.readHumidity();
   temperature = dht.readTemperature();
 
-  MotorL(w_l*10);
-  MotorR(w_r*10);
-
   if (PulsesY < 2000){
     PulseWidthY = PulsesY;
   }  
@@ -215,8 +221,17 @@ void loop() {
     PulseWidthX = PulsesX;
   }
 
-  PulseWidthY = (PulseWidthY) - 36;
-  PulseWidthX = (PulseWidthX) + 8;
+// if switch set to cmd_vel
+  MotorL(w_l*10);
+  MotorR(w_r*10);
+// if switch set to rc. Will enable just battery pack to mega to just move the robot
+//     without having to boot up the whole shebang
+//  rcPWM();
+//  MotorL(rc_pwm_L);
+//  MotorR(rc_pwm_R);
+
+  // PulseWidthY = (PulseWidthY) - 0;
+  // PulseWidthX = (PulseWidthX) + 0;
 
   str_msgt.data = PulseWidthY;
   str_msgs.data = PulseWidthX;

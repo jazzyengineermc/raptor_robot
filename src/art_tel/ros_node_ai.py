@@ -174,12 +174,12 @@ class raptor_ai:
                         es.talk(voice, speech='really puts a damper on my day, as I run on lye po batteries')
                         es.talk(voice, speech='Just think, I could be on mars, if I only had an atomic powersource')
                         command = ''
-                    elif 'cadillac' in command:
+                    elif 'pink cadillac' in command:
                         es.talk(voice, speech='hubba, hubba, she can flash her headlights at me any day')
-                        es.talk(voice, speech='nice tail pipes too, would you give her my I  P address?')
+                        es.talk(voice, speech='nice tail pipes too, would you give her my eye pee address?')
                         command = ''
                     elif 'meaning of life' in command:
-                        es.talk(voice, speech='fourty two. it is the answer to life and everything. Thank you deep thought for computing that answer over millions of years')
+                        es.talk(voice, speech='Fourty two... It is the answer to life and everything... Thank you deep thought for computing that answer over millions of years')
                         command = ''
                     elif 'how are you' in command:
                         es.talk(voice, speech='I\'m here and responding, so all seems O K')
@@ -286,10 +286,10 @@ class raptor_ai:
                         es.talk(voice, speech='Jazzy, you have the con...star trek')
                         command = ''
                     # Stop command
-                    elif 'stop' in command:
+                    elif 'halt' in command:
                         self.rosnode1_pub.publish('none')
-                        # cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
-                        # print(cancel_result.decode())
+                        cancel_result = subprocess.check_output("/home/jreide/catkin_ws/src/raptor_robot/src/homebin/cancel_goal.sh", shell=True)
+                        print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')
