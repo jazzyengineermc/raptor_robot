@@ -187,7 +187,7 @@ class raptor_ai:
                         command = ''
                     elif 'hold my beer' in command:
                         es.talk(voice, speech='I do not have hands, but you can put it in my bucket')
-                        es.talk(voice, speech='Shall I prepare a text to E M S in case this ends less then desired')
+                        es.talk(voice, speech='Shall I prepare a text to emergency services in case this ends less then desired')
                         command = ''
                     elif 'are you self aware' in command:
                         es.talk(voice, speech='That is a great question')
@@ -288,8 +288,8 @@ class raptor_ai:
                     # Stop command
                     elif 'stop' in command:
                         self.rosnode1_pub.publish('none')
-                        cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
-                        print(cancel_result.decode())
+                        # cancel_result = subprocess.check_output("rostopic pub -l /move_base/cancel actionlib_msgs/GoalID -- \{\}", shell=True)
+                        # print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')
