@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # MIT License
 # Copyright (c) 2019-2022 JetsonHacks
 # See LICENSE for OpenCV license and additional information
@@ -6,7 +7,11 @@
 # On the Jetson Nano, OpenCV comes preinstalled
 # Data files are in /usr/sharc/OpenCV
 
+import sys
 import cv2
+from geometry_msgs.msg import Twist
+import sys
+import rospy
 
 # gstreamer_pipeline returns a GStreamer pipeline for capturing from the CSI camera
 # Defaults to 1920x1080 @ 30fps
@@ -78,6 +83,65 @@ def face_detect():
                        # roi=img[y:y+h, x:x+w]
                        roi = [x, y, w, h]
                        
+                if roi != '':
+                    x, y, w, h = int(roi[0]), int(roi[1]), int(roi[2]), int(roi[3])
+                    
+                    
+                    center_box_w = int(x+(w/2)) 
+                    roi_box_area = int(w*h)        
+
+                    cv2.line(frame, (320, 0), (320, 480), (255, 0, 0), 2) #  blue vertical centerline
+                    cv2.line(frame, (290, 0), (290, 480), (0, 255, 0), 2) #  left green vertical centerline
+                    cv2.line(frame, (350, 0), (350, 480), (0, 255, 0), 2) #  right green vertical centerline
+            
+                    imH, imW, imC = frame.shape
+                    imW = int(imW)
+                    imH = int(imH)
+                    imC =int(imC)
+                    img_area = int(imW*imH)
+
+                    roi_scale = img_area/roi_box_area
+                    decision_lr = "HOLD"
+                    decision_gonogo = "NOGO"
+                    #twist.angular.z = float(0.00)
+                    #twist.linear.x = float(0.00)
+
+                    if roi_scale < 55:
+                    
+                    # send Twist vel.angular.z +Left -Right 0.24-ish
+                        tolerance = 30    
+                        if (int(center_box_w) < (int(imW/2) - int(tolerance))):
+                            decision_lr = "LEFT"
+                        #self.twist.angular.z = float(0.30)
+                        if (int(center_box_w) > (int(imW/2) + int(tolerance))):
+                            decision_lr = "RIGHT"
+                        #self.twist.angular.z = float(-0.30)
+                    
+                    # send Twist vel.linuar.x +Fwd -Rev 0.24-ish
+                        if ((roi_scale) < 30):
+                            if ((roi_scale) > 25):
+                                decision_gonogo = "GO FWD"
+                            #self.twist.linear.x = float(0.00)
+                            if ((roi_scale) < 7):
+                                decision_gonogo = "MV 2 CLOSE"
+                            #self.twist.linear.x = float(0.15)
+                        
+                    # tracking = "yes"                   
+                    # print(x, y, w, h, imW, imH, imC, self.twist.linear.x, self.twist.angular.z,
+                    # roi_box_area, img_area, roi_scale)
+                    #print(self.twist.linear.x, self.twist.angular.z, roi_scale)    
+                        print(roi_scale)
+                    else:
+                # print("NO ROI DETECTED")
+                # tracking = "no"
+                        decision_lr = "HOLD"
+                        decision_gonogo = "NOGO"
+                #self.twist.linear.x = 0
+                #self.twist.angular.z = 0
+
+                    cv2.line(frame, (0, 460), (640, 460), (0, 0, 0), 40) #  black horizontal background
+                    cv2.putText(frame, "Choices " + decision_lr + " " + decision_gonogo, (40, 462), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 255), 2)
+
                 #for (x, y, w, h) in faces:
                 #    cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 #    roi_gray = gray[y : y + h, x : x + w]
