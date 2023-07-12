@@ -286,10 +286,10 @@ class raptor_ai:
                         es.talk(voice, speech='Jazzy, you have the con...star trek')
                         command = ''
                     # Stop command
-                    elif 'halt' in command:
+                    elif 'stop' in command:
                         self.rosnode1_pub.publish('none')
-                        cancel_result = subprocess.check_output("/home/jreide/catkin_ws/src/raptor_robot/src/homebin/cancel_goal.sh", shell=True)
-                        print(cancel_result.decode())
+                        # cancel_result = subprocess.check_output("/home/jreide/catkin_ws/src/raptor_robot/src/homebin/cancel_goal.sh", shell=True)
+                        # print(cancel_result.decode())
                         self.cmd_vel_pub.publish( self.twist )
                         es.talk(voice, speech='subroutine management code needs refining')
                         es.talk(voice, speech='but if you insist I will open control channel')
