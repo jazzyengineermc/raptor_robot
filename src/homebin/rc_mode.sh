@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 cd /home/jreide/catkin_ws
 source devel/setup.bash
 

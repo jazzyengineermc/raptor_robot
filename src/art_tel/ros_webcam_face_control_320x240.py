@@ -34,7 +34,7 @@ class face_control:
         self.twist.angular.x = 0
         self.twist.angular.y = 0
 
-        self.cam = cv2.VideoCapture(3)
+        self.cam = cv2.VideoCapture(1)
         success, img = self.cam.read()
 
         if success:
