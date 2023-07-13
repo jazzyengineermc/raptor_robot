@@ -28,7 +28,7 @@ class DiffTf:
         self.base_width = float(rospy.get_param('~base_width', 0.34)) # The wheel base width in meters
         
         self.base_frame_id = rospy.get_param('~base_frame_id','base_link') # the name of the base frame of the robot
-        self.odom_frame_id = rospy.get_param('~odom_frame_id', 'odom') # the name of the odometry reference frame
+        self.odom_frame_id = rospy.get_param('~odom_frame_id', 'raptor/odom') # the name of the odometry reference frame
         
         self.encoder_min = rospy.get_param('encoder_min', 0)
         self.encoder_max = rospy.get_param('encoder_max', 65535)

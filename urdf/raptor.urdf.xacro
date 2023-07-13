@@ -64,6 +64,24 @@
 			<origin xyz="0 0 0.10" rpy="0 0 0"/>
 		</joint>
 
+		<joint name="imu_joint" type="fixed">
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<parent link="base_link" />
+			<child link="imu_link" />
+		</joint>
+
+		<link name="imu_link">
+		<!--
+		<visual>
+		<origin rpy="0 0 1.5708" xyz="0 0 0"/>
+		<geometry>
+			<mesh filename="package://mpu_6050_driver/mesh/FUGMJ38JX8T7E5A.stl" scale="0.01 0.01 0.01"/> 
+		</geometry>
+		<material name="white"/>
+		</visual>
+		-->
+		</link> 
+
 		<link name="pvc_up_left">
 			<inertial>
       			<origin xyz="0 0 0" rpy="0 0 0"/>
