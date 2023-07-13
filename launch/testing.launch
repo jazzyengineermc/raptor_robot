@@ -16,9 +16,9 @@
 
     <include file="$(find raptor_robot)/launch/include/usb_cam.launch" />
 
-    <include file="$(find raptor_robot)/launch/include/ekf_filter.launch" />
     <include file="$(find raptor_robot)/launch/include/amcl_diff.launch" />
 <!--
+    <include file="$(find raptor_robot)/launch/include/ekf_filter.launch" />
     <include file="$(find raptor_robot)/launch/include/rs_rgbd.launch" />
 -->
 </launch>
