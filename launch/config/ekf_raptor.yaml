@@ -1,7 +1,7 @@
 # The frequency, in Hz, at which the filter will output a position estimate. Note that the filter will not begin
 # computation until it receives at least one message from one of the inputs. It will then run continuously at the
 # frequency specified here, regardless of whether it receives more measurements. Defaults to 30 if unspecified.
-frequency: 10
+frequency: 30
 
 silent_tf_failure: false
 # The period, in seconds, after which we consider a sensor to have timed out. In this event, we carry out a predict
@@ -83,9 +83,9 @@ odom0: odom
 # do not provide some of the state variables estimated by the filter. For example, a TwistWithCovarianceStamped message
 # has no pose information, so the first six values would be meaningless in that case. Each vector defaults to all false
 # if unspecified, effectively making this parameter required for each sensor.
-odom0_config: [true,  true,  false,
+odom0_config: [false, false,  false,
                false, false, false,
-               false, false, false,
+               true, true, false,
                false, false, true,
                false, false, false]
 
@@ -161,10 +161,10 @@ odom0_twist_rejection_threshold: 1
 
 imu0: /imu/data
 imu0_config: [false, false, false,
-              true,  true,  true,
               false, false, false,
-              true,  true,  true,
-              true,  true,  true]
+              false, false, false,
+              false, false,  true,
+              true, false, false]
 imu0_nodelay: false
 imu0_differential: false
 imu0_relative: true
