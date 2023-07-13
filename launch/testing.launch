@@ -14,11 +14,11 @@
     <include file="$(find raptor_robot)/launch/include/rplidar.launch" />
 
     <include file="$(find raptor_robot)/launch/include/usb_cam.launch" />
-    <include file="$(find raptor_robot)/launch/include/mpu6050.launch" />
-    <include file="$(find raptor_robot)/launch/include/ekf_filter.launch" />    
+    
     <include file="$(find raptor_robot)/launch/include/amcl_diff.launch" />
 <!--
-
+    <include file="$(find raptor_robot)/launch/include/mpu6050.launch" />
+    <include file="$(find raptor_robot)/launch/include/ekf_filter.launch" />
 
     <include file="$(find raptor_robot)/launch/include/rs_rgbd.launch" />
 -->
