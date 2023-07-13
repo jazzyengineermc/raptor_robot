@@ -15,6 +15,31 @@ import os
 class face_control:
 
     def __init__(self):
+        def gstreamer_pipeline(
+            capture_width=640,
+            capture_height=480,
+            display_width=640,
+            display_height=480,
+            framerate=30,
+            flip_method=0,
+        ):
+            return (
+                "nvarguscamerasrc ! "
+                "video/x-raw(memory:NVMM), "
+                "width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
+                "nvvidconv flip-method=%d ! "
+                "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+                "videoconvert ! "
+                "video/x-raw, format=(string)BGR ! appsink drop=True"
+                % (
+                    capture_width,
+                    capture_height,
+                    framerate,
+                    flip_method,
+                    display_width,
+                    display_height,
+                )
+            )
         #--- Publishers
         # self.image_pub = rospy.Publisher("image_topic",Image,queue_size=1)
         self.rcvel_pub2 = rospy.Publisher("raptor/cmd_vel", Twist, queue_size=1)
@@ -34,7 +59,7 @@ class face_control:
         self.twist.angular.x = 0
         self.twist.angular.y = 0
 
-        self.cam = cv2.VideoCapture(1)
+        self.cam = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
         success, img = self.cam.read()
 
         if success:
