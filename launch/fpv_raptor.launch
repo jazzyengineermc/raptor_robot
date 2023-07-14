@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+    
+    <include file="$(find raptor_robot)/launch/raptor_rsp.launch" />
+
+    <include file="$(find raptor_robot)/launch/include/shoes.launch" />
+   
+    <include file="$(find raptor_robot)/launch/include/usb_cam.launch" />
+
+</launch>
