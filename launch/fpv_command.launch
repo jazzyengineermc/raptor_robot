@@ -1,0 +1,6 @@
+<launch>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find raptor_robot)/rviz/fpv.rviz" output="screen" />
+    <include file="$(find raptor_robot)/launch/raptor_teleop.launch" />
+
+</launch>
