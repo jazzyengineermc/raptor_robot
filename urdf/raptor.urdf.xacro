@@ -2,6 +2,8 @@
 	<robot name="raptor" xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:include filename="$(find raptor_robot)/urdf/include/material.xacro"/>
 	<xacro:include filename="$(find raptor_robot)/urdf/include/gazebo.xacro"/>
+	<xacro:include filename="$(find raptor_robot)/urdf/include/_d435i.urdf.xacro"/>
+
   		<link name="base_link">
 		</link>
 
@@ -422,7 +424,7 @@
 			<axis xyz="0 0 0"/>
 		</joint>	
 
-		<!-- Camera -->
+		<!-- Camera 
 		<link name="camera_link">
 			<inertial>
       			<origin xyz="0 0 0" rpy="0 0 0"/>
@@ -447,13 +449,17 @@
 				</geometry>
 			</collision>
 		</link>
-
-		<!-- Camera Joint -->
+-->
+		<!-- Camera Joint 
 		<joint name="camera_joint" type="fixed">
 			<origin xyz="-0.16 0 0.93" rpy="0 0 0" />
 			<parent link="base_link"/>
 			<child link="camera_link" />
 			<axis xyz="0 0 0"/>
 		</joint>
+-->
+		<xacro:sensor_d435i parent="base_link">
+			
+		</xacro:sensor_d435i>
 
 	</robot>
