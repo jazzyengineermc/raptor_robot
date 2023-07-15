@@ -9,7 +9,7 @@
     <robotNamespace>/</robotNamespace>
     <leftJoint>base_to_lwheel</leftJoint>
     <rightJoint>base_to_rwheel</rightJoint>
-    <wheelSeparation>0.45</wheelSeparation>
+    <wheelSeparation>0.34</wheelSeparation>
     <wheelDiameter>0.2</wheelDiameter>
     <torque>0.1</torque>
     <commandTopic>cmd_vel</commandTopic>
@@ -31,7 +31,7 @@
   <sensor type="ray" name="head_hokuyo_sensor">
     <pose>0 0 0 0 0 0</pose>
     <visualize>false</visualize>
-    <update_rate>20</update_rate>
+    <update_rate>10</update_rate>
     <ray>
       <scan>
         <horizontal>
@@ -107,9 +107,12 @@
 <gazebo reference="rwheel">
   <material>Gazebo/Black</material>
 </gazebo>
-<gazebo reference="caster_wheel">
+<gazebo reference="caster_rear_collision">
   <material>Gazebo/Black</material>
   <mu1>0.001</mu1>
   <mu2>0.001</mu2>
+</gazebo>
+<gazebo reference="bucket">
+  <material>Gazebo/Blue</material>
 </gazebo>
 </robot>
