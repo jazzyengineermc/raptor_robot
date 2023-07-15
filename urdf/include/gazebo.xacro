@@ -107,5 +107,9 @@
 <gazebo reference="rwheel">
   <material>Gazebo/Black</material>
 </gazebo>
-
+<gazebo reference="caster_wheel">
+  <material>Gazebo/Black</material>
+  <mu1>0.001</mu1>
+  <mu2>0.001</mu2>
+</gazebo>
 </robot>
