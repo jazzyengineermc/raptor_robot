@@ -2,7 +2,7 @@
 
     <include file="$(find raptor_robot)/launch/raptor_rsp.launch" />
     <node name="shoes" pkg="rosserial_arduino" type="serial_node.py" args="/dev/ttyACM0" />
-    
+    <include file="$(find raptor_robot)/launch/include/rplidar.launch" />
     <node pkg="tf" type="static_transform_publisher" name="base_foot_bc" args="0 0 0 0 0 0 base_link base_footprint 100" />  
     <!--<node pkg="tf" type="static_transform_publisher" name="base_cam_bc" args="-0.16 0 0.93 0 0 0 base_link camera_link 100" />
 -->
@@ -28,7 +28,7 @@
         <arg name="camera_info_topic" value="/camera/color/camera_info"/>
         <arg name="depth_camera_info_topic" value="/camera/depth/camera_info"/>
         <arg name="frame_id"                default="base_link"/>
-        <!--<arg name="scan_topic"              default="/scan"/>-->
+        <arg name="scan_topic"              default="/scan"/>
         <arg name="rtabmapviz" value="false"/>
         <arg name="rviz" value="false"/>
     </include>
