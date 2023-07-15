@@ -96,16 +96,16 @@
     <material>
       <script>
         <uri>file://media/materials/scripts/gazebo.material</uri>
-        <name>Gazebo/Orange</name>
+        <name>Gazebo/Red</name>
       </script>
     </material>
   </visual>
 </gazebo>
 <gazebo reference="lwheel">
-  <material>Gazebo/Blue</material>
+  <material>Gazebo/Black</material>
 </gazebo>
 <gazebo reference="rwheel">
-  <material>Gazebo/Blue</material>
+  <material>Gazebo/Black</material>
 </gazebo>
 
 </robot>
